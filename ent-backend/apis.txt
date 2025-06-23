@@ -1,0 +1,228 @@
+
+## Authentication Endpoints
+
+### `/auth/login` (POST)
+- **Request**:
+  ```typescript
+  {
+    username: string;
+    password: string;
+  }
+  ```
+- **Response**:
+  ```typescript
+  {
+    id: number;
+    username: string;
+    password: string;
+    fullName: string;
+    email: string;
+    testHistory: TestAttempt[];
+  }
+  ```
+
+### `/auth/register` (POST)
+- **Request**:
+  ```typescript
+  {
+    username: string;
+    password: string;
+    fullName: string;
+    email: string;
+  }
+  ```
+- **Response**:
+  ```typescript
+  {
+    id: number;
+    username: string;
+    password: string;
+    fullName: string;
+    email: string;
+    testHistory: TestAttempt[];
+  }
+  ```
+
+### `/auth/logout` (POST)
+- **Request**: No body needed
+- **Response**: 
+  ```typescript
+  {
+    success: boolean;
+  }
+  ```
+
+### `/auth/current-user` (GET)
+- **Request**: No body needed
+- **Response**:
+  ```typescript
+  {
+    id: number;
+    username: string;
+    password: string;
+    fullName: string;
+    email: string;
+    testHistory: TestAttempt[];
+  }
+  ```
+
+### `/auth/test-history` (POST)
+- **Request**:
+  ```typescript
+  {
+    testId: number;
+    date: string;
+    score: number;
+    totalQuestions: number;
+  }
+  ```
+- **Response**:
+  ```typescript
+  {
+    success: boolean;
+  }
+  ```
+
+## Test Endpoints
+
+### `/tests` (GET)
+- **Request**: No body needed
+- **Response**:
+  ```typescript
+  [
+    {
+      id: number;
+      title: string;
+      description: string;
+      questions: {
+        id: number;
+        text: string;
+        options: string[];
+        correctAnswer: number;
+      }[];
+    }
+  ]
+  ```
+
+### `/tests/:id` (GET)
+- **Request**: No body needed, id in URL
+- **Response**:
+  ```typescript
+  {
+    id: number;
+    title: string;
+    description: string;
+    questions: {
+      id: number;
+      text: string;
+      options: string[];
+      correctAnswer: number;
+    }[];
+  }
+  ```
+
+### `/tests/results` (POST)
+- **Request**:
+  ```typescript
+  {
+    testId: number;
+    score: number;
+    answers: number[];
+    date: string;
+  }
+  ```
+- **Response**:
+  ```typescript
+  {
+    success: boolean;
+  }
+  ```
+
+### `/tests/results` (GET)
+- **Request**: No body needed
+- **Response**:
+  ```typescript
+  [
+    {
+      testId: number;
+      score: number;
+      answers: number[];
+      date: string;
+    }
+  ]
+  ```
+
+### `/tests/:testId/results` (GET)
+- **Request**: No body needed, testId in URL
+- **Response**:
+  ```typescript
+  [
+    {
+      testId: number;
+      score: number;
+      answers: number[];
+      date: string;
+    }
+  ]
+  ```
+
+### `/tests/performance` (GET)
+- **Request**: Optional query parameter `testIds` as comma-separated numbers
+- **Response**:
+  ```typescript
+  {
+    totalTests: number;
+    averageScore: number;
+    weakestAreas: {
+      testId: number;
+      title: string;
+      averageScore: number;
+    }[];
+  }
+  ```
+
+## AI Helper Endpoints
+
+### `/ai/feedback` (POST)
+- **Request**:
+  ```typescript
+  {
+    user: {
+      id: number;
+      username: string;
+      password: string;
+      fullName: string;
+      email: string;
+      testHistory: {
+        testId: number;
+        date: string;
+        score: number;
+        totalQuestions: number;
+      }[];
+    },
+    tests: {
+      id: number;
+      title: string;
+      description: string;
+      questions: {
+        id: number;
+        text: string;
+        options: string[];
+        correctAnswer: number;
+      }[];
+    }[];
+  }
+  ```
+- **Response**:
+  ```typescript
+  {
+    overview: string;
+    strengths: string[];
+    weaknesses: string[];
+    recommendations: string[];
+  }
+  ```
+
+These structures match what's currently being used in your frontend services, so implementing these on your backend will ensure compatibility. Note that your backend should handle error cases appropriately with proper status codes and error messages.
+
+Would you like more details about any specific endpoint or any additional information about implementing these on your backend?

@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "Қазақстан тарихы",
+    "description": "Қазақстан тарихынан тест сұрақтары",
+    "questions": [],
+    "reference": "subjects/kazakhstan_history.json"
+  },
+  {
+    "id": 2,
+    "title": "Математикалық сауаттылық",
+    "description": "Математикалық сауаттылықтан тест сұрақтары",
+    "questions": [],
+    "reference": "subjects/mathematical_literacy.json"
+  },
+  {
+    "id": 3,
+    "title": "Оқу сауаттылығы",
+    "description": "Оқу сауаттылығынан тест сұрақтары",
+    "questions": [],
+    "reference": "subjects/reading_literacy.json"
+  },
+  {
+    "id": 4,
+    "title": "Физика",
+    "description": "Физикадан тест сұрақтары",
+    "questions": [],
+    "reference": "subjects/physics.json"
+  },
+  {
+    "id": 5,
+    "title": "Информатика",
+    "description": "Информатикадан тест сұрақтары",
+    "questions": [],
+    "reference": "subjects/informatics.json"
+  }
+] 

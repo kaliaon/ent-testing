@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "username": "user1",
+    "password": "password1",
+    "fullName": "Асан Әбілов",
+    "email": "asan@example.com",
+    "testHistory": [
+      {
+        "testId": 1,
+        "date": "2023-04-15T14:30:00",
+        "score": 2,
+        "totalQuestions": 3
+      },
+      {
+        "testId": 2,
+        "date": "2023-04-16T10:20:00",
+        "score": 3,
+        "totalQuestions": 3
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "username": "user2",
+    "password": "password2",
+    "fullName": "Айгүл Сәрсенова",
+    "email": "aigul@example.com",
+    "testHistory": [
+      {
+        "testId": 1,
+        "date": "2023-04-14T16:45:00",
+        "score": 1,
+        "totalQuestions": 3
+      }
+    ]
+  }
+] 
